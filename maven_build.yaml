@@ -1,10 +1,12 @@
 - name: Testing ping module
   hosts: localhost
   become: true
+  vars:
+          directory_name: working_directory
   tasks:
           - name: create working directory
             file:
-                path: test_directory
+                path: "{{ directory_name }}"
                 state: directory
           - name: installing tomcat9
             apt:
@@ -21,7 +23,7 @@
           - name: git checkout
             git:
                 repo: 'https://github.com/SayamGanguly/java-hello-world-with-maven.git'
-                dest: jenkins_maven_project
+                dest: "{{ directory_name }}"
           - name: register ls result
             command: ls
             register: res
@@ -29,4 +31,4 @@
             debug:
                 msg: "{{ res.stdout }}"
           - name: run mvn package
-            command: mvn -f jenkins_maven_project/pom.xml package
+            command: mvn -f "{{ directory_name }}"/pom.xml package
