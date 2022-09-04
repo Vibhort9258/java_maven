@@ -17,7 +17,7 @@
           - name: git checkout
             git:
                 repo: 'https://github.com/SayamGanguly/java-hello-world-with-maven.git'
-                dest: /jenkins_maven_project
+                dest: jenkins_maven_project
           - name: register ls result
             command: ls
             register: res
