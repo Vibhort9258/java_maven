@@ -23,6 +23,6 @@
             register: res
           - name: display result
             debug:
-                msg: "{{ res }}"
+                msg: "{{ res.stdout }}"
           - name: run mvn package
-            command: mvn -f /jenkins_maven_project/java-hello-world-with-maven/pom.xml package
+            command: mvn -f java-hello-world-with-maven/pom.xml package
