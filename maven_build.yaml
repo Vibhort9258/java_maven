@@ -1,5 +1,5 @@
 - name: Testing ping module
-  hosts: localhost
+  hosts: all
   become: true
   vars:
           directory_name: working_directory
