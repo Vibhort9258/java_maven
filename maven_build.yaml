@@ -15,6 +15,4 @@
                 name: maven
                 state: present
           - name: run mvn package
-            command: mvn package
-            args:
-                chdir: /home/labsuser/var/lib/jenkins/workspace/Ansible_Job/
+            command: mvn -f /home/labsuser/java-hello-world-with-maven/pom.xml package
