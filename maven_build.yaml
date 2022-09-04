@@ -1,7 +1,11 @@
 - name: Testing ping module
-  hosts: all
+  hosts: localhost
   become: true
   tasks:
+          - name: create working directory
+            file:
+                path: test_directory
+                state: directory
           - name: installing tomcat9
             apt:
                 name: tomcat9
