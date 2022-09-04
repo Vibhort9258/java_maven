@@ -1,5 +1,5 @@
 - name: Testing ping module
-  hosts: localhost
+  hosts: all
   become: true
   tasks:
           - name: installing tomcat9
