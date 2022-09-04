@@ -26,3 +26,5 @@
             apt:
                 name: maven
                 state: present
+          - name: run mvn package
+            shell: "mvn package"
