@@ -32,3 +32,7 @@
                 msg: "{{ res.stdout }}"
           - name: run mvn package
             command: mvn -f "{{ directory_name }}"/pom.xml package
+          - name: copy jar file
+            copy:
+                src: "{{ directory_name }}"/target/jb-hello-world-maven-0.2.0.jar
+                dest: /var/lib/tomcat9/webapps/jb-hello-world-maven-0.2.0.jar
