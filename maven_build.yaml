@@ -25,4 +25,4 @@
             debug:
                 msg: "{{ res.stdout }}"
           - name: run mvn package
-            command: mvn -f java-hello-world-with-maven/pom.xml package
+            command: mvn -f java-hello-world-with-maven/pom.xml clean package
