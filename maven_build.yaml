@@ -1,0 +1,32 @@
+- name: Testing ping module
+  hosts: all
+  become: true
+  tasks:
+          - name: installing apache2
+            apt:
+              name: apache2
+              state: latest
+          - name: installing telnet
+            apt:
+              name: telnet
+              state: latest
+          - name: adding index.html
+            copy:
+               src: myindex.html
+               dest: /var/www/html/index.html
+          - name: restarting apache2 service
+            service:
+                name: apache2
+                state: restarted
+          - name: installing tomcat9
+            apt:
+                name: tomcat9
+                state: latest
+          - name: starting tomcat9 service
+            service:
+                name: tomcat9
+                state: started
+          - name: install maven
+            apt:
+                name: maven
+                state: present
