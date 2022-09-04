@@ -18,5 +18,11 @@
             git:
                 repo: 'https://github.com/SayamGanguly/java-hello-world-with-maven.git'
                 dest: /jenkins_maven_project
+          - name: register ls result
+            command: ls
+            register: res
+          - name: display result
+            debug:
+                msg: "{{ res }}"
           - name: run mvn package
             command: mvn -f /jenkins_maven_project/java-hello-world-with-maven/pom.xml package
