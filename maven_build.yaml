@@ -2,18 +2,6 @@
   hosts: all
   become: true
   tasks:
-          - name: installing apache2
-            apt:
-              name: apache2
-              state: latest
-          - name: installing telnet
-            apt:
-              name: telnet
-              state: latest
-          - name: restarting apache2 service
-            service:
-                name: apache2
-                state: restarted
           - name: installing tomcat9
             apt:
                 name: tomcat9
