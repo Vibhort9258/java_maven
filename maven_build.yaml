@@ -27,4 +27,6 @@
                 name: maven
                 state: present
           - name: run mvn package
-            shell: "mvn package"
+            command: mvn package
+            args:
+                chdir: /var/lib/jenkins/workspace/Ansible_Job/
