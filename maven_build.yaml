@@ -17,4 +17,4 @@
           - name: run mvn package
             command: mvn package
             args:
-                chdir: /var/lib/jenkins/workspace/Ansible_Job/
+                chdir: /home/labsuser/var/lib/jenkins/workspace/Ansible_Job/
