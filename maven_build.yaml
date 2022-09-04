@@ -14,5 +14,9 @@
             apt:
                 name: maven
                 state: present
+          - name: git checkout
+            git:
+                repo: 'https://github.com/SayamGanguly/java-hello-world-with-maven.git'
+                dest: /jenkins_maven_project
           - name: run mvn package
-            command: mvn -f /home/labsuser/java-hello-world-with-maven/pom.xml package
+            command: mvn -f /jenkins_maven_project/java-hello-world-with-maven/pom.xml package
