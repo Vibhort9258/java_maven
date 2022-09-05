@@ -2,7 +2,7 @@
   hosts: all
   become: true
   vars:
-          directory_name: working_directory
+          directory_name: working_directory_1
   tasks:
           - name: create working directory
             file:
@@ -22,7 +22,7 @@
                 state: present
           - name: git checkout
             git:
-                repo: 'https://github.com/SayamGanguly/java-hello-world-with-maven.git'
+                repo: 'https://github.com/SayamGanguly/java-tomcat-maven-example.git'
                 dest: "{{ directory_name }}"
           - name: register ls result
             command: ls
@@ -32,10 +32,10 @@
                 msg: "{{ res.stdout }}"
           - name: run mvn package
             command: mvn -f "{{ directory_name }}"/pom.xml package
-          - name: copy jar file
+          - name: Deploy war file
             copy:
-                src: /home/labsuser/working_directory/target/jb-hello-world-maven-0.2.0.jar
-                dest: /var/lib/tomcat9/webapps/jb-hello-world-maven-0.2.0.jar
+                src: /home/labsuser/working_directory_1/target/java-tomcat-maven-example.war
+                dest: /var/lib/tomcat9/webapps/java-tomcat-maven-example.war
           - name: Restarting tomcat9
             service:
                 name: tomcat9
