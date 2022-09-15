@@ -1,2 +1,2 @@
-localhost ansible_ssh_user=labsuser
-172.31.60.74 ansible_ssh_user=labsuser
+[servers]
+jenkins ansible_host=3.87.193.161
