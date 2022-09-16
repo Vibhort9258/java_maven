@@ -1,5 +1,5 @@
 - name: Testing ping module
-  hosts: all
+  hosts: webserver
   become: true
   vars:
           directory_name: java_maven
@@ -34,8 +34,8 @@
             command: mvn -f "{{ directory_name }}"/pom.xml package
           - name: Deploy war file
             copy:
-                src: /home/ubuntu/java_maven/target/*.war
-                dest: /var/lib/tomcat9/webapps/*.war
+                src: /home/ajwadmin/java_maven/target/*.war
+                dest: /var/lib/tomcat9/webapps/
           - name: Restarting tomcat9
             service:
                 name: tomcat9
